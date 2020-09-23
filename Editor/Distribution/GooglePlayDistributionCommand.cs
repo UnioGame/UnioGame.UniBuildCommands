@@ -30,7 +30,7 @@ namespace UniModules.UniGame.BuildCommands.Editor.Distribution
             settings.Validate();
         
             var buildParameters    = configuration.BuildParameters;
-            var outputArtifactPath = buildParameters.OutputFolder.CombinePath(buildParameters.OutputFile);
+            var outputArtifactPath = buildParameters.ArtifactPath;
         
             Debug.Log($"{nameof(GooglePlayDistributionCommand)} : Upload {outputArtifactPath}");
 
