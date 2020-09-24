@@ -4,7 +4,7 @@
   "displayName": "UniGame Build commands",
   "description": "Additional Commands for Build Pipeline",
   "unity": "2019.3",
-  "version": "2020.0.11",
+  "version": "2020.0.12",
   "homepage": "https://github.com/UniGameTeam/UniBuild#readme",
   "keywords": [
     "Build",
@@ -12,13 +12,13 @@
     "Commands"
   ],
   "dependencies": {
-    "com.unigame.unibuildpipeline": "2020.0.10",
-    "com.unigame.unicore": "2020.0.4",
-    "com.unigame.distribution": "2020.0.7",
-    "com.unigame.addressablestools": "2020.0.5",
+    "com.unigame.unibuildpipeline": "2020.0.11",
+    "com.unigame.unicore": "2020.0.5",
+    "com.unigame.distribution": "2020.0.8",
+    "com.unigame.addressablestools": "2020.0.6",
     "com.unity.scriptablebuildpipeline": "1.8.4",
     "com.unity.addressables": "1.16.1",
     "com.unity.test-framework": "1.1.16",
-    "com.unigame.codewriter": "2020.0.6"
+    "com.unigame.codewriter": "2020.0.7"
   }
 }
