@@ -7,40 +7,60 @@
     using UniGreenModules.UniCore.EditorTools.Editor.Utility;
     using UnityEditor;
     using UnityEditor.AddressableAssets;
-    using UnityEditor.AddressableAssets.Settings;
     using UnityEngine;
 
     [Serializable]
     public class ApplyAddressablesTemplatesCommand
     {
-        [SerializeField] private string                        filter     = String.Empty;
-        [SerializeField] private bool                          useRegExpr = false;
-        [SerializeField] private List<AddressableAssetGroup>   localGroups;
-        [SerializeField] private AddressableAssetGroupTemplate localTemplate;
-        [SerializeField] private AddressableAssetGroupTemplate remoteTemplate;
-        
+#if ODIN_INSPECTOR
+        [Sirenix.OdinInspector.InlineProperty]
+        [Sirenix.OdinInspector.ListDrawerSettings(Expanded = true,DraggableItems = true,ShowPaging = true)]
+#endif
+        public List<AddressableTemplateRule> groupRules = new List<AddressableTemplateRule>();
+
+#if ODIN_INSPECTOR
+        [Sirenix.OdinInspector.Button]
+#endif
         public void Execute()
         {
-            var regExprValue = new Regex(filter,RegexOptions.Compiled|RegexOptions.IgnoreCase);
+            foreach (var rule in groupRules)
+            {
+                ApplyTemplate(rule);
+            }
             
+            AssetDatabase.SaveAssets();
+        }
+
+        private void ApplyTemplate(AddressableTemplateRule rule)
+        {
+            var filter       = rule.filter;
+            var overrideData = rule.groupsOverride;
+            var useOverride  = overrideData.isOverride;
+            var regExprValue = new Regex(filter,RegexOptions.Compiled|RegexOptions.IgnoreCase);
+
+
             var settings = AddressableAssetSettingsDefaultObject.Settings;
+            
             if (settings == null) {
                 Debug.LogError("Addressable assets settings not found");
                 return;
             }
 
-            var lobbyGroups = settings.
+            var groups = settings.
                 groups.
-                Where(g => useRegExpr ? regExprValue.IsMatch(g.Name) : g.Name.StartsWith(filter));
+                Where(g => rule.useRegExpr ? 
+                    regExprValue.IsMatch(g.Name) : 
+                    g.Name.StartsWith(filter)).
+                ToList();
             
-            foreach (var group in lobbyGroups)
+            foreach (var group in groups)
             {
-                var template = localGroups.Contains(group) ? localTemplate : remoteTemplate;
+                var template = useOverride &&  overrideData.groups.Contains(group) ? 
+                    overrideData.templateOverride : 
+                    rule.template;
                 template.ApplyToAddressableAssetGroup(group);
                 group.MarkDirty();
             }
-            
-            AssetDatabase.SaveAssets();
         }
     }
 }

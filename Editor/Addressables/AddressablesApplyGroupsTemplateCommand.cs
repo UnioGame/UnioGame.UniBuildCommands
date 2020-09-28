@@ -6,8 +6,8 @@
     using UnityEngine;
 
     [Serializable]
-    [CreateAssetMenu(menuName = "UniGame/UniBuild/Addressables/ApplyGroupsTemplateCommand",fileName = nameof(ApplyGroupsTemplateCommand))]
-    public class ApplyGroupsTemplateCommand : UnityPreBuildCommand
+    [CreateAssetMenu(menuName = "UniGame/UniBuild/Addressables/ApplyGroupsTemplateCommand",fileName = nameof(AddressablesApplyGroupsTemplateCommand))]
+    public class AddressablesApplyGroupsTemplateCommand : UnityPreBuildCommand
     {
 #if ODIN_INSPECTOR
         [Sirenix.OdinInspector.InlineProperty]
@@ -20,10 +20,7 @@
         {
             Execute();
         }
-
-#if ODIN_INSPECTOR
-        [Sirenix.OdinInspector.Button]
-#endif
+        
         public void Execute()
         {
             command.Execute();
