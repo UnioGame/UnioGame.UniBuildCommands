@@ -6,6 +6,7 @@ using UniModules.UniGame.Core.Runtime.Extension;
 using UniModules.UniGame.UniBuild.Editor.ClientBuild.Commands.PreBuildCommands;
 using UniModules.UniGame.UniBuild.Editor.ClientBuild.Interfaces;
 using UnityEditor;
+using UnityEngine;
 
 namespace UniModules.UniBuild.Commands.Editor.PathCommands
 {
@@ -27,10 +28,16 @@ namespace UniModules.UniBuild.Commands.Editor.PathCommands
 #endif
         public void Execute()
         {
-            folderPath.Where(Directory.Exists).ForEach(x => Directory.Delete(x, true));
+            try
+            {
+                folderPath.Where(Directory.Exists).ForEach(x => Directory.Delete(x, true));
+                assetPath.Where(File.Exists).ForEach(File.Delete);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e);
+            }
 
-            assetPath.Where(File.Exists).ForEach(File.Delete);
-            
             AssetDatabase.Refresh();
         }
 
