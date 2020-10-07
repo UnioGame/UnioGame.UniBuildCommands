@@ -1,14 +1,10 @@
 ﻿namespace UniModules.UniGame.BuildCommands.Editor.WebRequests
 {
     using System;
-    using System.Collections.Generic;
-    using System.Collections.Specialized;
     using Core.Runtime.Utils;
-    using UniBuild.Editor.ClientBuild.Commands.PostBuildCommands;
     using UniBuild.Editor.ClientBuild.Commands.PreBuildCommands;
     using UniBuild.Editor.ClientBuild.Interfaces;
-    using UniModules.UniCore.Runtime.Rx.Extensions;
-    using UnityEditor.Build.Reporting;
+    using UniCore.Runtime.Rx.Extensions;
     using UnityEngine;
     using UnityEngine.Networking;
 
@@ -31,7 +27,7 @@
 #endif
         public WebRequestParameters parameters = new WebRequestParameters();
         
-        public override void Execute(IUniBuilderConfiguration configuration, BuildReport buildReport) => Execute();
+        public override void Execute(IUniBuilderConfiguration configuration) => Execute();
 
 #if ODIN_INSPECTOR
         [Sirenix.OdinInspector.Button]

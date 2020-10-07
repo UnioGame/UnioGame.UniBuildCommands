@@ -53,7 +53,7 @@ namespace UniModules.UniGame.BuildCommands.Editor.Ftp
 #endif
         public FtpFolderSyncMode folderSyncMode = FtpFolderSyncMode.Update;
 
-        public override void Execute(IUniBuilderConfiguration configuration, BuildReport buildReport) => Upload();
+        public override void Execute(IUniBuilderConfiguration configuration) => Upload();
 
 #if ODIN_INSPECTOR
         [Sirenix.OdinInspector.Button]

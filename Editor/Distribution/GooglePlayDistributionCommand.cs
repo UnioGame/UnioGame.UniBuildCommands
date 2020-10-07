@@ -25,7 +25,7 @@ namespace UniModules.UniGame.BuildCommands.Editor.Distribution
 #endif
         public bool useBuildPath;
     
-        public override void Execute(IUniBuilderConfiguration configuration, BuildReport buildReport = null)
+        public override void Execute(IUniBuilderConfiguration configuration)
         {
             settings.Validate();
         
