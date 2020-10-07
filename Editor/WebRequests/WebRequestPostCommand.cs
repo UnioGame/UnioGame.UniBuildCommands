@@ -7,7 +7,7 @@
     using UniBuild.Editor.ClientBuild.Commands.PostBuildCommands;
     using UniBuild.Editor.ClientBuild.Commands.PreBuildCommands;
     using UniBuild.Editor.ClientBuild.Interfaces;
-    using UniGreenModules.UniCore.Runtime.Rx.Extensions;
+    using UniModules.UniCore.Runtime.Rx.Extensions;
     using UnityEditor.Build.Reporting;
     using UnityEngine;
     using UnityEngine.Networking;
