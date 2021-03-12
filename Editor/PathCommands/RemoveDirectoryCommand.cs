@@ -28,19 +28,50 @@ namespace UniModules.UniBuild.Commands.Editor.PathCommands
 #endif
         public void Execute()
         {
+            folderPath
+                .Where(Directory.Exists)
+                .ForEach(x =>
+                {
+                    TryAction(() => FileUtil.DeleteFileOrDirectory(x));
+                });
+            
+            AssetDatabase.Refresh();
+            
+            folderPath
+                .Where(Directory.Exists)
+                .ForEach(x =>
+                {
+                    TryAction(() => Directory.Delete(x, true));
+                    
+                });
+            
+            AssetDatabase.Refresh();
+            
+            assetPath
+                .Where(File.Exists)
+                .ForEach(x =>
+                {
+                    TryAction(() => File.Delete(x));
+                });
+
+            AssetDatabase.Refresh();
+        }
+
+        public override void Execute(IUniBuilderConfiguration buildParameters) => Execute();
+
+        public bool TryAction(Action action)
+        {
             try
             {
-                folderPath.Where(Directory.Exists).ForEach(x => Directory.Delete(x, true));
-                assetPath.Where(File.Exists).ForEach(File.Delete);
+                action();
+                return true;
             }
             catch (Exception e)
             {
                 Debug.LogError(e);
             }
 
-            AssetDatabase.Refresh();
+            return false;
         }
-
-        public override void Execute(IUniBuilderConfiguration buildParameters) => Execute();
     }
 }
