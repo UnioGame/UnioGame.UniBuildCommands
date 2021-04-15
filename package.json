@@ -4,7 +4,7 @@
   "displayName": "UniGame Build Commands",
   "description": "Additional Commands for Build Pipeline",
   "unity": "2019.3",
-  "version": "2021.0.10",
+  "version": "2021.0.11",
   "homepage": "https://github.com/UniGameTeam/UniBuild#readme",
   "keywords": [
     "Build",
@@ -21,6 +21,6 @@
     "com.unity.test-framework": "1.1.24",
     "com.unigame.codewriter": "2020.1.14",
     "com.unigame.fluentftp": "34.4.4",
-    "com.unigame.addressable-importer": "2021.0.0"
+    "com.unigame.addressable-importer": "2021.0.1"
   }
 }
