@@ -25,6 +25,7 @@
 
         public CleanType CleanType = CleanType.CleanAll;
         
+        public bool promtWarning = false;
         
         public override void Execute(IUniBuilderConfiguration buildParameters)
         {
@@ -65,7 +66,7 @@
 
         public void OnCleanSBP()
         {
-            BuildCache.PurgeCache(true);
+            BuildCache.PurgeCache(promtWarning);
         }
         
     }
