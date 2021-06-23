@@ -1,9 +1,9 @@
-namespace UniModules.UniBuild.Commands
+using System;
+using UniModules.UniGame.UniBuild.Editor.ClientBuild.Commands.PreBuildCommands;
+using UniModules.UniGame.UniBuild.Editor.ClientBuild.Interfaces;
+
+namespace UniModules.UniBuild.Commands.Editor.Addressables
 {
-    using System;
-    using UniModules.UniGame.UniBuild.Editor.ClientBuild.Commands.PreBuildCommands;
-    using UniModules.UniGame.UniBuild.Editor.ClientBuild.Interfaces;
-    
     [Serializable]
     public class AddressablesFixGuidCommand : UnitySerializablePreBuildCommand
     {
@@ -12,8 +12,6 @@ namespace UniModules.UniBuild.Commands
 #if ODIN_INSPECTOR
         [Sirenix.OdinInspector.Button]
 #endif
-        private void Execute() => AddressablesAssetsFix.FixAddressablesGuids();
-    
+        private void Execute() => AddressablesAssetsFix.FixAddressablesErrors();
     }
-
 }
