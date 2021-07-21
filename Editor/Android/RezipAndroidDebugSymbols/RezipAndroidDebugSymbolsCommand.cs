@@ -56,21 +56,9 @@ public class RezipAndroidDebugSymbolsCommand : SerializableBuildCommand
             return;
         }
         
-        AndroidSymbolShrinker.ShrinkSymbols(ToAbsolutePath(target),architecture);
+        AndroidSymbolShrinker.ShrinkSymbols(target.ToAbsoluteProjectPath(),architecture);
     }
-    
 
-    /// <summary>Checks if this FTP path is a top level path</summary>
-    public static bool IsAbsolutePath(string path) => path.StartsWith("/") || path.StartsWith("./") || path.StartsWith("../");
-
-    public static string ToAbsolutePath(string path)
-    {
-        return IsAbsolutePath(path) ? path : 
-            Application.dataPath
-                .Replace("Assets",String.Empty)
-                .CombinePath(path);
-    }
-    
 #if ODIN_INSPECTOR
     [Sirenix.OdinInspector.Button]
 #endif
