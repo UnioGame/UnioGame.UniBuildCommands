@@ -61,10 +61,10 @@ public class AndroidSymbolShrinker
         ShrinkSymbols(location);
     }
 
-    public static void ShrinkSymbols(string location, AndroidArchitecture supportedAndroidArchitecture = AndroidArchitecture.All)
+    public static bool ShrinkSymbols(string location, AndroidArchitecture supportedAndroidArchitecture = AndroidArchitecture.All)
     {
-        if (string.IsNullOrEmpty(location))
-            return;
+        if (string.IsNullOrEmpty(location) || File.Exists(location) == false)
+            return false;
 
         var targetDirectory  = Path.GetDirectoryName(location);
         var intermediatePath = Path.Combine(targetDirectory, IntermediatePathName);
@@ -94,6 +94,8 @@ public class AndroidSymbolShrinker
         Log($"New small symbol package: {newZip}");
 
         EditorUtility.RevealInFinder(newZip);
+
+        return true;
     }
 
     public static void CleanUpDebugFiles(string location)

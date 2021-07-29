@@ -24,6 +24,8 @@ public class RezipAndroidDebugSymbolsCommand : SerializableBuildCommand
 #endif
     public string zipFileLocation = string.Empty;
     
+    public bool removeSourceDebugSymbols = true;
+    
     public override void Execute(IUniBuilderConfiguration configuration)
     {
 #if UNITY_CLOUD_BUILD
@@ -55,8 +57,23 @@ public class RezipAndroidDebugSymbolsCommand : SerializableBuildCommand
             Debug.LogWarning($"{nameof(RezipAndroidDebugSymbolsCommand)} EMPTY Debug Symbols For artofact {artifactPath}");
             return;
         }
-        
-        AndroidSymbolShrinker.ShrinkSymbols(target.ToAbsoluteProjectPath(),architecture);
+
+        var debugSymbolsPath = target.ToAbsoluteProjectPath();
+
+        try
+        {
+            AndroidSymbolShrinker.ShrinkSymbols(debugSymbolsPath,architecture);
+
+            if (removeSourceDebugSymbols)
+            {
+                File.Delete(debugSymbolsPath);
+            }
+        }
+        catch (Exception e)
+        {
+            return;
+        }
+
     }
 
 #if ODIN_INSPECTOR
