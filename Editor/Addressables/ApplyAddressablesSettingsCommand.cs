@@ -1,4 +1,4 @@
-using UniModules.UniCore.EditorTools.Editor.Utility;
+using UniModules.Editor;
 using UnityEditor;
 
 namespace UniModules.UniBuild.Commands

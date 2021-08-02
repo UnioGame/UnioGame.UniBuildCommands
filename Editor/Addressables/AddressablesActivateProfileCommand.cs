@@ -7,8 +7,7 @@ namespace UniModules.UniGame.BuildCommands.Editor.Addressables
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using Core.EditorTools.Editor.AssetOperations;
-    using UniModules.UniCore.EditorTools.Editor.Utility;
+    using UniModules.Editor;
     using UnityEditor;
     using UnityEditor.AddressableAssets.Settings;
 

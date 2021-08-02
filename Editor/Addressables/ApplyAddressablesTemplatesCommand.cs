@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text.RegularExpressions;
-    using UniModules.UniCore.EditorTools.Editor.Utility;
+    using UniModules.Editor;
     using UnityEditor;
     using UnityEditor.AddressableAssets;
     using UnityEngine;

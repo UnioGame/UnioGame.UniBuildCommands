@@ -6,9 +6,9 @@ using System.IO;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using UniModules.Editor;
 using UniModules.UniCore.Runtime.Extension;
 using UniModules.UniCore.Runtime.Utils;
-using UniModules.UniGame.Core.EditorTools.Editor.Tools;
 
 public class AndroidSymbolShrinker
 {

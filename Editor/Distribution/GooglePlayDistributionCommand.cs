@@ -1,15 +1,13 @@
-﻿using System;
-using System.IO;
-using ConsoleGPlayAPITool;
-using UniModules.UniGame.Core.EditorTools.Editor.Tools;
-using UniModules.UniGame.UniBuild.Editor.ClientBuild.Commands.PreBuildCommands;
-using UniModules.UniGame.UniBuild.Editor.ClientBuild.Interfaces;
-using UnityEditor;
-using UnityEditor.Build.Reporting;
-using UnityEngine;
-
-namespace UniModules.UniGame.BuildCommands.Editor.Distribution
+﻿namespace UniModules.UniGame.BuildCommands.Editor.Distribution
 {
+    using System;
+    using System.IO;
+    using ConsoleGPlayAPITool;
+    using UniModules.UniGame.UniBuild.Editor.ClientBuild.Commands.PreBuildCommands;
+    using UniModules.UniGame.UniBuild.Editor.ClientBuild.Interfaces;
+    using UnityEditor;
+    using UnityEngine;
+    
     [Serializable]
     public class GooglePlayDistributionCommand : UnitySerializablePostBuildCommand
     {

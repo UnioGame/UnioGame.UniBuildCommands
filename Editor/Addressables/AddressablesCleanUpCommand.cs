@@ -1,7 +1,8 @@
-﻿namespace UniModules.UniGame.BuildCommands.Editor.Addressables
+﻿using UniModules.Editor.Addressables.Extensions;
+
+namespace UniModules.UniGame.BuildCommands.Editor.Addressables
 {
     using System;
-    using AddressableTools.Editor.Extensions;
     using UniBuild.Editor.ClientBuild.Commands.PreBuildCommands;
     using UniBuild.Editor.ClientBuild.Interfaces;
     using UnityEditor.Build.Pipeline.Utilities;
