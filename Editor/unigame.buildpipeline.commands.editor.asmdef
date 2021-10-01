@@ -1,5 +1,6 @@
 {
     "name": "unigame.build.buildcommands.editor",
+    "rootNamespace": "",
     "references": [
         "unigame.buildpipeline.editor",
         "unigame.addressables.editor",
@@ -11,7 +12,8 @@
         "Unity.Addressables.Editor",
         "Unity.ScriptableBuildPipeline",
         "Unity.ScriptableBuildPipeline.Editor",
-        "unigame.cipublisher.editor"
+        "unigame.cipublisher.editor",
+        "Unity.SharpZipLib.Utils"
     ],
     "includePlatforms": [
         "Editor"
