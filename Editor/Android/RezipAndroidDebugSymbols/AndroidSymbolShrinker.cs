@@ -30,7 +30,6 @@ public class AndroidSymbolShrinker
         {AndroidArchitecture.ARMv7, "armeabi-v7a"},
     };
 
-    [MenuItem("Android Symbols/Shrink")]
     public static void ShrinkSymbols()
     {
         var location = EditorPrefs.GetString(LastSymbolToShrinkLocation, Path.Combine(Application.dataPath, ".."));
