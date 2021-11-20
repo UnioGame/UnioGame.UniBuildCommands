@@ -29,6 +29,13 @@ namespace UniModules.UniGame.BuildCommands.Editor.Ftp
 #endif
         public string password;
 
+                
+#if ODIN_INSPECTOR
+        [Sirenix.OdinInspector.BoxGroup("Source Info")]
+        [Sirenix.OdinInspector.InfoBox("You can use addressable variables [BuildPath] e.t.c")]
+#endif
+        public string sourceDirectory = $"[RemoteBuildPath]";
+        
 #if ODIN_INSPECTOR
         [Sirenix.OdinInspector.BoxGroup("Server Info")]
 #endif
@@ -37,11 +44,12 @@ namespace UniModules.UniGame.BuildCommands.Editor.Ftp
 #if ODIN_INSPECTOR
         [Sirenix.OdinInspector.BoxGroup("Server Info")]
         [Sirenix.OdinInspector.ShowIf("overrideTargetFolder")]
-        [Sirenix.OdinInspector.InfoBox("You can use addressables variables [BuildPath] e.t.c")]
+        [Sirenix.OdinInspector.InfoBox("You can use addressable variables [BuildPath] e.t.c")]
 #endif
         [Space(6)]
         public string remoteDirectory = string.Empty;
 
+        
 #if ODIN_INSPECTOR
         [Sirenix.OdinInspector.BoxGroup("Server Info")]
 #endif
@@ -58,7 +66,7 @@ namespace UniModules.UniGame.BuildCommands.Editor.Ftp
 #endif
         public void Upload()
         {
-            var buildFolder           = $"[{AddressableAssetSettings.kRemoteBuildPath}]".EvaluateActiveProfileString();
+            var buildFolder           =  sourceDirectory.EvaluateActiveProfileString();
             var targetUploadDirectory = remoteDirectory.EvaluateActiveProfileString();
 
             if (!overrideTargetFolder) {
