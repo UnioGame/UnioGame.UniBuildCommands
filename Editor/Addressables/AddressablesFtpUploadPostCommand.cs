@@ -1,4 +1,5 @@
 ﻿using UniModules.Editor;
+using UniModules.UniGame.CoreModules.UniGame.AddressableTools.Editor.Extensions;
 using UniModules.UniGame.UniBuild.Editor.ClientBuild.Interfaces;
 
 namespace UniModules.UniGame.BuildCommands.Editor.Ftp
@@ -7,7 +8,6 @@ namespace UniModules.UniGame.BuildCommands.Editor.Ftp
     using System.IO;
     using System.Linq;
     using System.Net;
-    using AddressableExtensions.Editor;
     using FluentFTP;
     using UniBuild.Editor.ClientBuild.Commands.PreBuildCommands;
     using UnityEditor.AddressableAssets.Settings;

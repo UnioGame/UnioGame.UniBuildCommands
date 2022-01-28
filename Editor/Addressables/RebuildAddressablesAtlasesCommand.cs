@@ -1,7 +1,8 @@
-﻿namespace UniModules.UniGame.BuildCommands.Editor.Addressables
+﻿using UniModules.UniGame.CoreModules.UniGame.AddressableTools.Editor.AddressableSpriteAtlasManager;
+
+namespace UniModules.UniGame.BuildCommands.Editor.Addressables
 {
     using System;
-    using AddressableTools.Editor.AddressableSpriteAtlasManager;
     using UniBuild.Editor.ClientBuild.Commands.PreBuildCommands;
     using UniBuild.Editor.ClientBuild.Interfaces;
     using UnityEngine;
