@@ -1,4 +1,4 @@
-﻿using UniModules.UniGame.CoreModules.UniGame.AddressableTools.Editor.Extensions;
+﻿using UniModules.UniGame.AddressableExtensions.Editor;
 
 namespace UniModules.UniGame.BuildCommands.Editor.Addressables
 {

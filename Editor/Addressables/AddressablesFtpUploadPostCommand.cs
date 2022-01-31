@@ -1,5 +1,5 @@
 ﻿using UniModules.Editor;
-using UniModules.UniGame.CoreModules.UniGame.AddressableTools.Editor.Extensions;
+using UniModules.UniGame.AddressableExtensions.Editor;
 using UniModules.UniGame.UniBuild.Editor.ClientBuild.Interfaces;
 
 namespace UniModules.UniGame.BuildCommands.Editor.Ftp
