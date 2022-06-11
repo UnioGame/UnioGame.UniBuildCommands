@@ -6,7 +6,7 @@
     using UnityEngine;
 
     [Serializable]
-    [CreateAssetMenu(menuName = "UniGame/UniBuild/Addressables/ApplyGroupsTemplateCommand",fileName = nameof(AddressablesApplyGroupsTemplateCommand))]
+    [CreateAssetMenu(menuName = "UniGame/UniBuild/Commands/Addressables/ApplyGroupsTemplateCommand",fileName = nameof(AddressablesApplyGroupsTemplateCommand))]
     public class AddressablesApplyGroupsTemplateCommand : UnityPreBuildCommand
     {
 #if ODIN_INSPECTOR
