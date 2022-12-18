@@ -37,7 +37,7 @@ namespace UniModules.UniGame.BuildCommands.Editor.WebRequests
         {
             var targetUrl = apiUrl.CombineUrlParameters(parameters);
 
-            var webRequest = UnityWebRequest.Post(targetUrl,string.Empty);
+            var webRequest = UnityWebRequest.PostWwwForm(targetUrl,string.Empty);
             foreach (var headerParameter in header) {
                 webRequest.SetRequestHeader(headerParameter.Key,headerParameter.Value);
             }
