@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using ICSharpCode.SharpZipLib.Checksum;
-using ICSharpCode.SharpZipLib.Zip;
-using ICSharpCode.SharpZipLib.Zip.Compression;
 using UnityEditor;
 using UnityEngine;
 
 namespace UniGame.ZipTool
 {
+    using Unity.SharpZipLib.Checksum;
+    using Unity.SharpZipLib.Zip;
+    using Unity.SharpZipLib.Zip.Compression;
+
     public static class Zipper
     {
         public const string ToolName = "7z";
