@@ -46,13 +46,14 @@ namespace UniModules.UniGame.BuildCommands.Editor.WebRequests
                 webRequest.SetRequestHeader(headerParameter.Key,headerParameter.Value);
             }
             
-            var reqeustValue = webRequest.uri;
-            Debug.Log($"Send Post to : {reqeustValue}");
+            Debug.Log($"Send Post to : {webRequest.uri}");
             
             var requestAsyncOperation = webRequest.SendWebRequest();
             requestAsyncOperation.completed += x => {
-                
-                if (webRequest.isNetworkError || webRequest.isHttpError) {
+
+                if (webRequest.result ==UnityWebRequest.Result.ConnectionError || 
+                    webRequest.result ==UnityWebRequest.Result.ProtocolError || 
+                    webRequest.result ==UnityWebRequest.Result.DataProcessingError) {
                     Debug.Log(webRequest.error);
                 }
                 else {
