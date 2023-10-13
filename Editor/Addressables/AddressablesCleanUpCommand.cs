@@ -7,6 +7,7 @@ namespace UniModules.UniGame.BuildCommands.Editor.Addressables
     using UniBuild.Editor.ClientBuild.Interfaces;
     using UnityEditor.Build.Pipeline.Utilities;
     using UnityEngine;
+    using BuildLogger = UniBuild.Editor.ClientBuild.BuildLogger;
 
     public enum CleanType
     {
@@ -18,6 +19,8 @@ namespace UniModules.UniGame.BuildCommands.Editor.Addressables
     [Serializable]
     public class AddressablesCleanUpCommand : UnitySerializablePreBuildCommand
     {
+        public string CleanUpArgument = "-addressableCleanUp";
+        
         [Tooltip("Clean Addressables Library cache")]
         public bool CleanUpLibraryCache = true;
         
@@ -28,8 +31,14 @@ namespace UniModules.UniGame.BuildCommands.Editor.Addressables
         
         public bool promtWarning = false;
         
+        private bool _forceCleanUp = false;
+        
         public override void Execute(IUniBuilderConfiguration buildParameters)
         {
+            _forceCleanUp = buildParameters.Arguments.Contains(CleanUpArgument);
+            
+            BuildLogger.LogWithTimeTrack($"CleanUpArgument: {CleanUpArgument} ==  {_forceCleanUp}");
+            
             Execute();
         }
 
@@ -38,15 +47,15 @@ namespace UniModules.UniGame.BuildCommands.Editor.Addressables
 #endif
         public void Execute()
         {
-            if (CleanUpLibraryCache) {
+            if (CleanUpLibraryCache || _forceCleanUp)
                 AddressablesCleaner.RemoveLibraryCache();
-            }
 
-            if (CleanUpStreamingCache) {
+            if (CleanUpStreamingCache || _forceCleanUp)
                 AddressablesCleaner.RemoveStreamingCache();
-            }
+
+            var cleanType = _forceCleanUp ? CleanType : CleanType.CleanAll;
             
-            switch (CleanType) {
+            switch (cleanType) {
                 case CleanType.CleanAll:
                     CleanAll();
                     break;
