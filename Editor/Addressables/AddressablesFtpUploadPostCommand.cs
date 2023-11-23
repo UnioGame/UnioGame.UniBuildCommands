@@ -5,18 +5,18 @@ using UniModules.UniGame.UniBuild.Editor.ClientBuild.Interfaces;
 namespace UniModules.UniGame.BuildCommands.Editor.Ftp
 {
     using System;
+    using System.Collections.Generic;
     using System.IO;
     using System.Linq;
     using System.Net;
     using FluentFTP;
     using UniBuild.Editor.ClientBuild.Commands.PreBuildCommands;
-    using UnityEditor.AddressableAssets;
     using UnityEngine;
 
 #if ODIN_INSPECTOR
     using Sirenix.OdinInspector;
 #endif
-    
+
     [Serializable]
     public class AddressablesFtpUploadPostCommand : UnitySerializablePostBuildCommand
     {
@@ -28,50 +28,25 @@ namespace UniModules.UniGame.BuildCommands.Editor.Ftp
         [BoxGroup("Auth")]
 #endif
         public string userName;
-        
+
 #if ODIN_INSPECTOR
         [BoxGroup("Auth")]
 #endif
         public string password;
 
-                
 #if ODIN_INSPECTOR
-        [BoxGroup("Source Info")]
-        [InfoBox("You can use addressable variables [BuildPath] e.t.c")]
-        [OnValueChanged(nameof(UpdatePreview))]
+        [ListDrawerSettings(ListElementLabelName = "@sourceDirectory")]
 #endif
-        public string sourceDirectory = $"[RemoteBuildPath]";
-        
-#if ODIN_INSPECTOR
-        [BoxGroup("Source Info")]
-        [ReadOnly]   
-#endif
-        public string sourceDirectoryValue = string.Empty;
-        
-#if ODIN_INSPECTOR
-        [BoxGroup("Server Info")]
-#endif
-        public bool overrideTargetFolder = false;
+        public List<FtpLocation> locations = new List<FtpLocation>()
+        {
+            new FtpLocation(),
+        };
 
-#if ODIN_INSPECTOR
-        [BoxGroup("Server Info")]
-        [ShowIf("overrideTargetFolder")]
-        [InfoBox("You can use addressable variables [BuildPath] e.t.c")]
-#endif
-        [Space(6)]
-        public string remoteDirectory = string.Empty;
-        
-#if ODIN_INSPECTOR
-        [BoxGroup("Server Info")]
-        [ShowIf("overrideTargetFolder")]
-        [ReadOnly]
-#endif
-        public string remoteDirectoryValue = string.Empty;
-        
 #if ODIN_INSPECTOR
         [BoxGroup("Server Info")]
 #endif
         public FtpRemoteExists updateMethod = FtpRemoteExists.Overwrite;
+
 #if ODIN_INSPECTOR
         [BoxGroup("Server Info")]
 #endif
@@ -84,11 +59,26 @@ namespace UniModules.UniGame.BuildCommands.Editor.Ftp
 #endif
         public void Upload()
         {
-            var buildFolder           =  sourceDirectory.EvaluateActiveProfileString();
+            foreach (var location in locations)
+            {
+                Upload(location);
+            }
+        }
+
+        public void Upload(FtpLocation location)
+        {
+            var sourceDirectory = location.sourceDirectory;
+            var remoteDirectory = location.remoteDirectory;
+            var overrideTargetFolder = location.overrideTargetFolder;
+            
+            var buildFolder = sourceDirectory.EvaluateActiveProfileString();
             var targetUploadDirectory = remoteDirectory.EvaluateActiveProfileString();
 
-            if (!overrideTargetFolder) {
-                targetUploadDirectory = Directory.Exists(buildFolder) ? Path.GetFileName(buildFolder) : Path.GetDirectoryName(buildFolder);
+            if (!overrideTargetFolder)
+            {
+                targetUploadDirectory = Directory.Exists(buildFolder)
+                    ? Path.GetFileName(buildFolder)
+                    : Path.GetDirectoryName(buildFolder);
             }
 
             Debug.Log($"Upload from: {buildFolder}");
@@ -107,11 +97,13 @@ namespace UniModules.UniGame.BuildCommands.Editor.Ftp
                 FtpVerify.None, null, UploadProgress);
 
             var failed = uploadResults.Where(x => x.IsFailed).ToList();
-
             var isValidResult = failed.Count <= 0;
-            if (!isValidResult) {
+            
+            if (!isValidResult)
+            {
                 Debug.LogError($"BuildCommand: {Name} upload to {targetUploadDirectory} failed for:");
-                foreach (var ftpResult in failed) {
+                foreach (var ftpResult in failed)
+                {
                     Debug.LogError($"{ftpResult.LocalPath} {ftpResult.Size}");
                 }
             }
@@ -123,16 +115,18 @@ namespace UniModules.UniGame.BuildCommands.Editor.Ftp
 
         private void CreateMissingDirectories(string serverPath, IFtpClient client)
         {
-            var pathItems      = serverPath.SplitPath();
+            var pathItems = serverPath.SplitPath();
             var serverLocation = string.Empty;
-            foreach (var pathItem in pathItems) {
+            foreach (var pathItem in pathItems)
+            {
                 serverLocation = serverLocation.CombinePath(pathItem);
                 var exists = client.DirectoryExists(serverLocation);
-                if (exists) {
-                    continue;
-                }
+                
+                if (exists) continue;
+
                 var creationResult = client.CreateDirectory(serverLocation);
-                if (creationResult == false) {
+                if (creationResult == false)
+                {
                     Debug.LogError($"Can't create Remote Folder {serverLocation}");
                 }
             }
@@ -144,6 +138,40 @@ namespace UniModules.UniGame.BuildCommands.Editor.Ftp
                 $"Uploading: Source: {progress.LocalPath} Target: {progress.RemotePath}";
             Debug.Log(progressLog);
         }
+    }
+
+    [Serializable]
+    public class FtpLocation
+    {
+#if ODIN_INSPECTOR
+        [BoxGroup("Source Info")]
+        [InfoBox("You can use addressable variables [BuildPath] e.t.c")]
+        [OnValueChanged(nameof(UpdatePreview))]
+#endif
+        public string sourceDirectory = $"[RemoteBuildPath]";
+
+#if ODIN_INSPECTOR
+        [BoxGroup("Source Info")] [ReadOnly]
+#endif
+        public string sourceDirectoryValue = string.Empty;
+
+#if ODIN_INSPECTOR
+        [BoxGroup("Server Info")]
+#endif
+        public bool overrideTargetFolder = false;
+
+#if ODIN_INSPECTOR
+        [BoxGroup("Server Info")]
+        [ShowIf("overrideTargetFolder")]
+        [InfoBox("You can use addressable variables [BuildPath] e.t.c")]
+#endif
+        [Space(6)]
+        public string remoteDirectory = string.Empty;
+
+#if ODIN_INSPECTOR
+        [BoxGroup("Server Info")] [ShowIf("overrideTargetFolder")] [ReadOnly]
+#endif
+        public string remoteDirectoryValue = string.Empty;
 
 #if ODIN_INSPECTOR
         [OnInspectorInit]
