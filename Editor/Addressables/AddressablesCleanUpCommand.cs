@@ -55,6 +55,8 @@ namespace UniModules.UniGame.BuildCommands.Editor.Addressables
 
             var cleanType = _forceCleanUp ? CleanType : CleanType.CleanAll;
             
+            Debug.Log($"Addressable: CleanUpCommand Type = {cleanType}");
+            
             switch (cleanType) {
                 case CleanType.CleanAll:
                     CleanAll();
