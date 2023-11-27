@@ -14,7 +14,9 @@ namespace UniModules.UniBuild.Commands.Editor.PathCommands
 #if ODIN_INSPECTOR
         [Sirenix.OdinInspector.FolderPath]
 #endif
-        public List<string> folderPath = new List<string>();
+        public List<string> folderPath = new List<string>(){
+            "Builds/",    
+        };
 
 #if ODIN_INSPECTOR
         [Sirenix.OdinInspector.Button]
