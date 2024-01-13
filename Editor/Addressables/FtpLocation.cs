@@ -2,9 +2,12 @@ namespace UniModules.UniGame.BuildCommands.Editor.Ftp
 {
     using System;
     using AddressableExtensions.Editor;
-    using Sirenix.OdinInspector;
     using UnityEngine;
 
+#if ODIN_INSPECTOR
+    using Sirenix.OdinInspector;
+#endif
+    
     [Serializable]
     public class FtpLocation
     {
