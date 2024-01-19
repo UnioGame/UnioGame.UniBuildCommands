@@ -1,4 +1,6 @@
-﻿namespace UniModules.UniGame.BuildCommands.Editor.Distribution
+﻿#if UNIGAME_DISTRIBUTION
+
+namespace UniModules.UniGame.BuildCommands.Editor.Distribution
 {
     using System;
     using System.IO;
@@ -75,3 +77,6 @@
     
     }
 }
+
+   
+#endif
