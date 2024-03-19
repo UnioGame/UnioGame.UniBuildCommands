@@ -3,6 +3,7 @@
 namespace UniModules.UniGame.BuildCommands.Editor.Addressables
 {
     using System;
+    using global::UniGame.UniBuild.Editor.ClientBuild.Interfaces;
     using UniBuild.Editor.ClientBuild.Commands.PreBuildCommands;
     using UniBuild.Editor.ClientBuild.Interfaces;
     using UnityEditor.Build.Pipeline.Utilities;

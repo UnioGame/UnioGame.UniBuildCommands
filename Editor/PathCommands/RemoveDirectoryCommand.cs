@@ -10,6 +10,8 @@ using UnityEngine;
 
 namespace UniModules.UniBuild.Commands.Editor.PathCommands
 {
+    using global::UniGame.UniBuild.Editor.ClientBuild.Interfaces;
+
     [Serializable]
     public class RemoveDirectoryCommand : UnitySerializablePreBuildCommand
     {

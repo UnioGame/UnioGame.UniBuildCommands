@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using global::UniGame.UniBuild.Editor.ClientBuild.Interfaces;
     using UniBuild.Editor.ClientBuild.Commands.PreBuildCommands;
     using UniBuild.Editor.ClientBuild.Interfaces;
     using AddressableImporter = global::AddressableImporter;

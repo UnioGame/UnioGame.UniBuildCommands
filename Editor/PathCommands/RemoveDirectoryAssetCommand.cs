@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace UniModules.UniBuild.Commands.Editor.PathCommands
 {
+    using global::UniGame.UniBuild.Editor.ClientBuild.Interfaces;
+
     [CreateAssetMenu(menuName = "UniGame/UniBuild/Commands/RemoveDirectory",fileName = nameof(RemoveDirectoryAssetCommand))]
     public class RemoveDirectoryAssetCommand : UnityPreBuildCommand
     {

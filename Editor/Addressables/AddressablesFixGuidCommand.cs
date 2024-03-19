@@ -5,6 +5,8 @@ using UniModules.UniGame.UniBuild.Editor.ClientBuild.Interfaces;
 
 namespace UniModules.UniBuild.Commands.Editor.Addressables
 {
+    using global::UniGame.UniBuild.Editor.ClientBuild.Interfaces;
+
     [Serializable]
     public class AddressablesFixGuidCommand : UnitySerializablePreBuildCommand
     {

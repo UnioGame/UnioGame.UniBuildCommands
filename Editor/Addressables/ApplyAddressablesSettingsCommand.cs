@@ -4,6 +4,7 @@ using UnityEditor;
 namespace UniModules.UniBuild.Commands
 {
     using System;
+    using global::UniGame.UniBuild.Editor.ClientBuild.Interfaces;
     using UniModules.UniGame.UniBuild.Editor.ClientBuild.Commands.PreBuildCommands;
     using UniModules.UniGame.UniBuild.Editor.ClientBuild.Interfaces;
     using UnityEditor.AddressableAssets;

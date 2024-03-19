@@ -10,6 +10,7 @@ namespace UniModules.UniGame.BuildCommands.Editor.Ftp
     using System.Linq;
     using System.Net;
     using FluentFTP;
+    using global::UniGame.UniBuild.Editor.ClientBuild.Interfaces;
     using UniBuild.Editor.ClientBuild.Commands.PreBuildCommands;
     using UnityEngine;
 

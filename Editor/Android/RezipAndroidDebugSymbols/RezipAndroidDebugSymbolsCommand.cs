@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Linq;
+using UniGame.UniBuild.Editor.ClientBuild.Interfaces;
 using UniModules.Editor;
 using UniModules.UniGame.UniBuild.Editor.ClientBuild.Commands.PreBuildCommands;
 using UniModules.UniGame.UniBuild.Editor.ClientBuild.Interfaces;
@@ -31,9 +32,9 @@ public class RezipAndroidDebugSymbolsCommand : SerializableBuildCommand
 #if UNITY_CLOUD_BUILD
         return;
 #endif
-        var artifactPath     = configuration.BuildParameters.ArtifactPath;
+        var artifactPath     = configuration.BuildParameters.artifactPath;
         var buildParameters  = configuration.BuildParameters;
-        var buildTargetGroup = buildParameters.BuildTarget;
+        var buildTargetGroup = buildParameters.buildTarget;
 
         if (buildTargetGroup != BuildTarget.Android)
             return;
