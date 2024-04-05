@@ -1,6 +1,6 @@
 {
   "name": "com.unigame.buildpipeline.commands",
-  "author": "UniGameTeam",
+  "author": "UniGame",
   "displayName": "UniGame Build Commands",
   "description": "Additional Commands for Build Pipeline",
   "unity": "2019.3",
@@ -14,6 +14,7 @@
   "dependencies": {
     "com.unity.test-framework": "1.1.30",
     "com.unity.sharp-zip-lib" : "1.3.7",
+    "com.littlebigfun.addressable-importer": "https://github.com/UnioGame/unity-addressable-importer.git",
     "com.unigame.unityspreadsheets" : "https://github.com/UnioGame/UniGame.GoogleSpreadsheetsImporter.git",
     "com.unigame.coremodules": "https://github.com/UnioGame/UniGame.CoreModules.git",
     "com.unigame.fluentftp": "https://github.com/UnioGame/FuentFTP.git",
