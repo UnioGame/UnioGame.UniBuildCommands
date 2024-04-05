@@ -6,7 +6,7 @@ namespace UniModules.UniGame.BuildCommands.Editor.WebRequests
     using UniBuild.Editor.ClientBuild.Commands.PreBuildCommands;
     using UniBuild.Editor.ClientBuild.Interfaces;
 
-    [CreateAssetMenu(menuName = "UniGame/UniBuild//CommandsWeb/WebRequestPost",fileName = nameof(WebRequestPostAssetCommand))]
+    [CreateAssetMenu(menuName = "UniBuild//CommandsWeb/WebRequestPost",fileName = nameof(WebRequestPostAssetCommand))]
     public class WebRequestPostAssetCommand : UnityPreBuildCommand
     {
 #if ODIN_INSPECTOR
