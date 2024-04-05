@@ -6,6 +6,7 @@ Add to your project manifiest by path [%UnityProject%]/Packages/manifiest.json n
 ```json
 {
   "dependencies": {
+      "com.unigame.buildpipeline.commands" : "https://github.com/UnioGame/UnioGame.UniBuildCommands.git",
       "com.littlebigfun.addressable-importer": "https://github.com/UnioGame/unity-addressable-importer.git",
       "com.unigame.unityspreadsheets" : "https://github.com/UnioGame/UniGame.GoogleSpreadsheetsImporter.git",
       "com.unigame.coremodules": "https://github.com/UnioGame/UniGame.CoreModules.git",
