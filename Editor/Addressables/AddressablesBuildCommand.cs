@@ -5,6 +5,14 @@
     using Interfaces;
     using UnityEditor.AddressableAssets.Settings;
 
+#if TRI_INSPECTOR
+    using TriInspector;
+#endif
+    
+#if ODIN_INSPECTOR
+    using Sirenix.OdinInspector;
+#endif
+    
     [Serializable]
     public class AddressablesBuildCommand : UnitySerializablePreBuildCommand
     {
@@ -13,8 +21,8 @@
             Execute();
         }
 
-#if ODIN_INSPECTOR
-        [Sirenix.OdinInspector.Button]
+#if ODIN_INSPECTOR || TRI_INSPECTOR
+        [Button]
 #endif
         public void Execute()
         {

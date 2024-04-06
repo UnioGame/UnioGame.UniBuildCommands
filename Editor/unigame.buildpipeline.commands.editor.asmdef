@@ -13,7 +13,11 @@
         "Unity.ScriptableBuildPipeline",
         "Unity.ScriptableBuildPipeline.Editor",
         "unigame.cipublisher.editor",
-        "Unity.SharpZipLib.Utils"
+        "Unity.SharpZipLib.Utils",
+        "TriInspector",
+        "TriInspector.Editor",
+        "TriInspector.Editor.Extras",
+        "TriInspector.Editor.Integrations.Odin"
     ],
     "includePlatforms": [
         "Editor"
@@ -24,6 +28,12 @@
     "precompiledReferences": [],
     "autoReferenced": true,
     "defineConstraints": [],
-    "versionDefines": [],
+    "versionDefines": [
+        {
+            "name": "com.codewriter.triinspector",
+            "expression": "",
+            "define": "TRI_INSPECTOR"
+        }
+    ],
     "noEngineReferences": false
 }
