@@ -39,8 +39,10 @@ namespace UniModules.UniBuild.Commands
             asset.DisableCatalogUpdateOnStartup = settings.disableCatalogUpdateOnStartUp;
             asset.buildSettings.LogResourceManagerExceptions = settings.logRuntimeErrors;
             asset.UniqueBundleIds = settings.uniqueBundleIds;
-            
+
+#if !UNITY_2023_1_OR_NEWER
             ProjectConfigData.PostProfilerEvents = settings.enableEventProfile;
+#endif
 
             asset.MarkDirty();
             AssetDatabase.Refresh();
