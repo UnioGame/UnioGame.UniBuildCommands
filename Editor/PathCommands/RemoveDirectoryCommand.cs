@@ -11,14 +11,13 @@ using UnityEngine;
 namespace UniModules.UniBuild.Commands.Editor.PathCommands
 {
     using global::UniGame.UniBuild.Editor.ClientBuild.Interfaces;
+    using UnityEngine.Serialization;
 
     [Serializable]
     public class RemoveDirectoryCommand : UnitySerializablePreBuildCommand
     {
-#if ODIN_INSPECTOR
-        [Sirenix.OdinInspector.FolderPath]
-#endif
-        public List<string> folderPath = new List<string>();
+        [FormerlySerializedAs("folderPath")]
+        public List<Folder> folders = new List<Folder>();
 
 #if ODIN_INSPECTOR
         [Sirenix.OdinInspector.FilePath]
@@ -30,37 +29,58 @@ namespace UniModules.UniBuild.Commands.Editor.PathCommands
 #endif
         public void Execute()
         {
-            folderPath
-                .Where(Directory.Exists)
-                .ForEach(x =>
+            foreach (var value in folders)
+            {
+                if (value.deleteContentOnly)
                 {
-                    TryAction(() => FileUtil.DeleteFileOrDirectory(x));
-                });
+                    RemoveDirectoryContent(value.folder);
+                }
+                else
+                {
+                    RemoveDirectory(value.folder);
+                }
+            }
             
             AssetDatabase.Refresh();
-            
-            folderPath
-                .Where(Directory.Exists)
-                .ForEach(x =>
-                {
-                    TryAction(() => Directory.Delete(x, true));
-                    
-                });
-            
-            AssetDatabase.Refresh();
-            
+
             assetPath
                 .Where(File.Exists)
-                .ForEach(x =>
-                {
-                    TryAction(() => File.Delete(x));
-                });
+                .ForEach(x => { TryAction(() => File.Delete(x)); });
 
             AssetDatabase.Refresh();
         }
 
         public override void Execute(IUniBuilderConfiguration buildParameters) => Execute();
 
+        public void RemoveDirectory(string folder)
+        {
+            if (!Directory.Exists(folder)) return;
+            
+            TryAction(() => FileUtil.DeleteFileOrDirectory(folder));
+            
+            AssetDatabase.Refresh();
+            if (!Directory.Exists(folder)) return;
+            
+            TryAction(() => Directory.Delete(folder, true));
+        }
+        
+        public void RemoveDirectoryContent(string folder)
+        {
+            if (!Directory.Exists(folder)) return;
+            
+            var di = new DirectoryInfo(folder);
+            
+            foreach (var file in di.GetFiles())
+            {
+                file.Delete(); 
+            }
+            
+            foreach (var dir in di.GetDirectories())
+            {
+                dir.Delete(true); 
+            }
+        }
+        
         public bool TryAction(Action action)
         {
             try
@@ -75,5 +95,16 @@ namespace UniModules.UniBuild.Commands.Editor.PathCommands
 
             return false;
         }
+    }
+
+    [Serializable]
+    public struct Folder
+    {
+        public bool deleteContentOnly;
+
+#if ODIN_INSPECTOR
+        [Sirenix.OdinInspector.FolderPath]
+#endif
+        public string folder;
     }
 }
