@@ -13,6 +13,7 @@ Add to your project manifiest by path [%UnityProject%]/Packages/manifiest.json n
       "com.unigame.fluentftp": "https://github.com/UnioGame/FuentFTP.git",
       "com.unigame.unibuildpipeline" : "https://github.com/UnioGame/UniGame.UniBuild.git",
       "com.unigame.google.api.v4" :  "https://github.com/UnioGame/google.api.v4.git",
+      "com.unigame.symlinker" : "https://github.com/UnioGame/UniGame.SymLinker.git"
   }
 }
 ```
