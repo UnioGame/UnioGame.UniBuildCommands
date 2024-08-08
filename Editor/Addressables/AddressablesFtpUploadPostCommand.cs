@@ -1,6 +1,5 @@
 ﻿using UniModules.Editor;
 using UniModules.UniGame.AddressableExtensions.Editor;
-using UniModules.UniGame.UniBuild.Editor.ClientBuild.Interfaces;
 
 namespace UniModules.UniGame.BuildCommands.Editor.Ftp
 {
@@ -19,7 +18,7 @@ namespace UniModules.UniGame.BuildCommands.Editor.Ftp
 #endif
 
     [Serializable]
-    public class AddressablesFtpUploadPostCommand : UnitySerializablePostBuildCommand
+    public class AddressablesFtpUploadPostCommand : SerializableBuildCommand
     {
         public string disableArgument = "-disableFtpUpload";
         
@@ -38,7 +37,7 @@ namespace UniModules.UniGame.BuildCommands.Editor.Ftp
         public string password;
 
 #if ODIN_INSPECTOR
-        [ListDrawerSettings(ListElementLabelName = "@sourceDirectory")]
+        [ListDrawerSettings(ListElementLabelName = "@Label")]
 #endif
         public List<FtpLocation> locations = new List<FtpLocation>()
         {

@@ -41,6 +41,9 @@ namespace UniModules.UniGame.BuildCommands.Editor.Ftp
 #endif
         public string remoteDirectoryValue = string.Empty;
 
+        public string Label => string.IsNullOrEmpty(sourceDirectoryValue)
+                ? sourceDirectory : sourceDirectoryValue;
+        
 #if ODIN_INSPECTOR
         [OnInspectorInit]
 #endif
