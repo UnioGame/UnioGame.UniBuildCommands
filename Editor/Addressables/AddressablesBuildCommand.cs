@@ -2,7 +2,6 @@
 {
     using System;
     using global::UniGame.UniBuild.Editor.ClientBuild.Interfaces;
-    using Interfaces;
     using UnityEditor.AddressableAssets.Settings;
 
 #if TRI_INSPECTOR
