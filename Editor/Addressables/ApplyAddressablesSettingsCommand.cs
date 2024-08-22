@@ -7,6 +7,7 @@ namespace UniModules.UniBuild.Commands
     using global::UniGame.UniBuild.Editor.ClientBuild.Interfaces;
     using UniModules.UniGame.UniBuild.Editor.ClientBuild.Commands.PreBuildCommands;
     using UnityEditor.AddressableAssets;
+    using UnityEditor.AddressableAssets.Settings;
 
     [Serializable]
     public class ApplyAddressablesSettingsCommand : SerializableBuildCommand
