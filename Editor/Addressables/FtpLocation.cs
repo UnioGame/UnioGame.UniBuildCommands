@@ -7,19 +7,26 @@ namespace UniModules.UniGame.BuildCommands.Editor.Ftp
 #if ODIN_INSPECTOR
     using Sirenix.OdinInspector;
 #endif
-    
+
     [Serializable]
     public class FtpLocation
-    {
+    { 
+#if ODIN_INSPECTOR    
+        [BoxGroup("Source Info")]
+#endif
+        public bool overrideSourceDirectory = false;
+            
 #if ODIN_INSPECTOR
         [BoxGroup("Source Info")]
         [InfoBox("You can use addressable variables [BuildPath] e.t.c")]
+        [ShowIf(nameof(overrideSourceDirectory))]
         [OnValueChanged(nameof(UpdatePreview))]
 #endif
-        public string sourceDirectory = $"[RemoteBuildPath]";
+        public string sourceDirectory = $"Remote.BuildPath";
 
 #if ODIN_INSPECTOR
-        [BoxGroup("Source Info")] [ReadOnly]
+        [BoxGroup("Source Info")]
+        [ReadOnly]
 #endif
         public string sourceDirectoryValue = string.Empty;
 
@@ -37,20 +44,27 @@ namespace UniModules.UniGame.BuildCommands.Editor.Ftp
         public string remoteDirectory = string.Empty;
 
 #if ODIN_INSPECTOR
-        [BoxGroup("Server Info")] [ShowIf("overrideTargetFolder")] [ReadOnly]
+        [BoxGroup("Server Info")]
+        [ReadOnly]
 #endif
         public string remoteDirectoryValue = string.Empty;
 
         public string Label => string.IsNullOrEmpty(sourceDirectoryValue)
-                ? sourceDirectory : sourceDirectoryValue;
-        
+            ? sourceDirectory
+            : sourceDirectoryValue;
+
 #if ODIN_INSPECTOR
         [OnInspectorInit]
 #endif
         private void UpdatePreview()
         {
-            sourceDirectoryValue = sourceDirectory.EvaluateActiveProfileString();
-            remoteDirectoryValue = remoteDirectory.EvaluateActiveProfileString();
+            sourceDirectoryValue = overrideSourceDirectory
+                    ? sourceDirectory.EvaluateActiveProfileString()
+                    : AddressableEditorTools.GetRemoteBuildPath();
+            
+            remoteDirectoryValue = overrideTargetFolder
+                    ? remoteDirectory.EvaluateActiveProfileString()
+                    : AddressableEditorTools.GetRemoteLoadPath();
         }
     }
 }
