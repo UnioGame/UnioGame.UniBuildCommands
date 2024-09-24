@@ -4,7 +4,7 @@
   "displayName": "UniBuild Commands",
   "description": "Additional Commands for Build Pipeline",
   "unity": "2019.3",
-  "version": "2024.0.1",
+  "version": "2024.0.2",
   "homepage": "https://github.com/UniGameTeam/UniBuild#readme",
   "keywords": [
     "Build",
@@ -15,7 +15,6 @@
     "com.unity.test-framework": "1.1.30",
     "com.unity.sharp-zip-lib" : "1.3.7",
     "com.littlebigfun.addressable-importer": "https://github.com/UnioGame/unity-addressable-importer.git",
-    "com.unigame.unityspreadsheets" : "https://github.com/UnioGame/UniGame.GoogleSpreadsheetsImporter.git",
     "com.unigame.coremodules": "https://github.com/UnioGame/UniGame.CoreModules.git",
     "com.unigame.fluentftp": "https://github.com/UnioGame/FuentFTP.git",
     "com.unigame.unibuildpipeline" : "https://github.com/UnioGame/UniGame.UniBuild.git",
