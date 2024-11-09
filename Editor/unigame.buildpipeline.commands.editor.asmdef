@@ -17,7 +17,8 @@
         "TriInspector",
         "TriInspector.Editor",
         "TriInspector.Editor.Extras",
-        "TriInspector.Editor.Integrations.Odin"
+        "TriInspector.Editor.Integrations.Odin",
+        "unigame.addressable.atlases.runtime"
     ],
     "includePlatforms": [
         "Editor"
