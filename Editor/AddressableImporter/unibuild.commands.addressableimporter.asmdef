@@ -1,0 +1,25 @@
+{
+    "name": "unibuild.commands.addressableimporter",
+    "rootNamespace": "",
+    "references": [
+        "GUID:6256bdcb0aaf53446b7dd10403a9d748",
+        "GUID:f0321ba97c62c974b82a7fc7c1d544f9"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "ADDRESSABLE_IMPORTER_ENABLED"
+    ],
+    "versionDefines": [
+        {
+            "name": "com.littlebigfun.addressable-importer",
+            "expression": "",
+            "define": "ADDRESSABLE_IMPORTER_ENABLED"
+        }
+    ],
+    "noEngineReferences": false
+}
