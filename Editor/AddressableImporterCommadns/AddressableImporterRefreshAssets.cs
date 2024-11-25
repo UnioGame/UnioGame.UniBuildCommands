@@ -6,7 +6,7 @@
     using UniBuild.Editor.ClientBuild.Commands.PreBuildCommands;
     using AddressableImporter = global::AddressableImporter;
 
-    [Serializable]
+     [Serializable]
      public class AddressableImporterRefreshAssets : UnitySerializablePreBuildCommand
     {
 #if ODIN_INSPECTOR
