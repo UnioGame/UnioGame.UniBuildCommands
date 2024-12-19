@@ -4,9 +4,11 @@
     using System.Collections.Generic;
     using global::UniGame.UniBuild.Editor.ClientBuild.Interfaces;
     using UniBuild.Editor.ClientBuild.Commands.PreBuildCommands;
+    using UnityEngine.Scripting.APIUpdating;
     using AddressableImporter = global::AddressableImporter;
 
      [Serializable]
+     [MovedFrom(true,sourceAssembly:"unigame.build.buildcommands.editor")]
      public class AddressableImporterRefreshAssets : UnitySerializablePreBuildCommand
     {
 #if ODIN_INSPECTOR
