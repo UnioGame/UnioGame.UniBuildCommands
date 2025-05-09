@@ -68,7 +68,14 @@ namespace UniModules.UniGame.BuildCommands.Editor.Ftp
         {
             foreach (var location in locations)
             {
-                Upload(location);
+                try
+                {
+                    Upload(location);
+                }
+                catch (Exception e)
+                {
+                    Debug.LogError($"{nameof(AddressablesFtpUploadPostCommand)} Error: {e.Message}");
+                }
             }
         }
 
@@ -78,7 +85,10 @@ namespace UniModules.UniGame.BuildCommands.Editor.Ftp
             var remoteDirectory = location.remoteDirectory;
             var overrideTargetFolder = location.overrideTargetFolder;
             
-            var buildFolder = sourceDirectory.EvaluateActiveProfileString();
+            var buildFolder = string.IsNullOrEmpty(sourceDirectory)
+                ? location.sourceDirectoryValue
+                : sourceDirectory.EvaluateActiveProfileString();
+            
             var targetUploadDirectory = remoteDirectory.EvaluateActiveProfileString();
 
             if (!overrideTargetFolder)
@@ -88,6 +98,7 @@ namespace UniModules.UniGame.BuildCommands.Editor.Ftp
                     : Path.GetDirectoryName(buildFolder);
             }
 
+            Debug.Log($"FTP Url : {ftpUrl}");
             Debug.Log($"Upload from: {buildFolder}");
             Debug.Log($"Upload to: {targetUploadDirectory}");
 

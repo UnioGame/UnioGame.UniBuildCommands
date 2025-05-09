@@ -27,6 +27,7 @@ namespace UniModules.UniGame.BuildCommands.Editor.Ftp
 #if ODIN_INSPECTOR
         [BoxGroup("Source Info")]
         [ReadOnly]
+        [LabelText("source")]
 #endif
         public string sourceDirectoryValue = string.Empty;
 
@@ -46,6 +47,7 @@ namespace UniModules.UniGame.BuildCommands.Editor.Ftp
 #if ODIN_INSPECTOR
         [BoxGroup("Server Info")]
         [ReadOnly]
+        [LabelText("remote")]
 #endif
         public string remoteDirectoryValue = string.Empty;
 
