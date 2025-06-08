@@ -5,8 +5,8 @@ using System.IO;
 using System.Linq;
 using UniGame.ZipTool;
 using UniModules;
-using UniModules.UniCore.Runtime.Extension;
-using UniModules.UniCore.Runtime.Utils;
+using UniGame.Runtime.Extension;
+using UniGame.Runtime.Utils;
 
 public class AndroidSymbolShrinker
 {

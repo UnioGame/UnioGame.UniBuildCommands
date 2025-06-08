@@ -3,7 +3,7 @@ namespace UniModules.UniBuild.Commands.Editor.PathCommands
     using System;
     using System.Collections.Generic;
     using global::UniGame.UniBuild.Editor.ClientBuild.Interfaces;
-    using UniGame.UniBuild.Editor.ClientBuild.Commands.PreBuildCommands;
+    using global::UniGame.UniBuild.Editor.Commands.PreBuildCommands;
     using UnityEditor;
 
     [Serializable]

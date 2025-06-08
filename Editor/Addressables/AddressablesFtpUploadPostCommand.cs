@@ -9,7 +9,7 @@ namespace UniModules.UniGame.BuildCommands.Editor.Ftp
     using System.Net;
     using FluentFTP;
     using global::UniGame.UniBuild.Editor.ClientBuild.Interfaces;
-    using UniBuild.Editor.ClientBuild.Commands.PreBuildCommands;
+    using global::UniGame.UniBuild.Editor.Commands.PreBuildCommands;
     using UnityEngine;
 
 #if ODIN_INSPECTOR

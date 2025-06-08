@@ -1,7 +1,7 @@
 ﻿namespace UniModules.UniGame.BuildCommands.Editor.WebRequests
 {
     using System;
-    using UniModules.UniGame.Core.Runtime.DataStructure;
+    using global::UniGame.DataStructure;
 
     [Serializable]
     public class WebRequestParameters : SerializableDictionary<string, string>

@@ -1,6 +1,6 @@
 using System;
 using UniModules.UniGame.CoreModules.UniGame.AddressableTools.Editor.Commands;
-using UniModules.UniGame.UniBuild.Editor.ClientBuild.Commands.PreBuildCommands;
+using UniGame.UniBuild.Editor.Commands.PreBuildCommands;
 
 namespace UniModules.UniBuild.Commands.Editor.Addressables
 {

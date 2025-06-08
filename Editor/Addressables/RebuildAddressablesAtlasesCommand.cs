@@ -4,7 +4,7 @@
     using global::UniGame.AddressableAtlases;
     using global::UniGame.UniBuild.Editor.ClientBuild.Interfaces;
     using Sirenix.OdinInspector;
-    using UniBuild.Editor.ClientBuild.Commands.PreBuildCommands;
+    using global::UniGame.UniBuild.Editor.Commands.PreBuildCommands;
     using UniModules.Editor;
 
     [Serializable]

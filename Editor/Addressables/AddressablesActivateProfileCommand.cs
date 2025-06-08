@@ -1,4 +1,4 @@
-﻿using UniModules.UniGame.UniBuild.Editor.ClientBuild.Commands.PreBuildCommands;
+﻿using UniGame.UniBuild.Editor.Commands.PreBuildCommands;
 using UnityEngine;
 
 namespace UniModules.UniGame.BuildCommands.Editor.Addressables

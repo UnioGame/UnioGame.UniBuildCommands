@@ -4,10 +4,10 @@ namespace UniModules.UniGame.BuildCommands.Editor.Addressables
 {
     using System;
     using global::UniGame.UniBuild.Editor.ClientBuild.Interfaces;
-    using UniBuild.Editor.ClientBuild.Commands.PreBuildCommands;
+    using global::UniGame.UniBuild.Editor.Commands.PreBuildCommands;
     using UnityEditor.Build.Pipeline.Utilities;
     using UnityEngine;
-    using BuildLogger = UniBuild.Editor.ClientBuild.BuildLogger;
+    using BuildLogger = global::UniGame.UniBuild.Editor.BuildLogger;
 
     public enum CleanType
     {

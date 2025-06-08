@@ -1,4 +1,4 @@
-﻿namespace UniModules.UniGame.UniBuild.Editor.ClientBuild.Commands.PreBuildCommands.AddressablesCommands
+﻿namespace UniGame.UniBuild.Editor.Commands.PreBuildCommands.AddressablesCommands
 {
     using System;
     using System.Collections.Generic;

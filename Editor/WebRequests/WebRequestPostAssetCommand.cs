@@ -3,7 +3,7 @@
 namespace UniModules.UniGame.BuildCommands.Editor.WebRequests
 {
     using global::UniGame.UniBuild.Editor.ClientBuild.Interfaces;
-    using UniBuild.Editor.ClientBuild.Commands.PreBuildCommands;
+    using global::UniGame.UniBuild.Editor.Commands.PreBuildCommands;
 
     [CreateAssetMenu(menuName = "UniBuild//CommandsWeb/WebRequestPost",fileName = nameof(WebRequestPostAssetCommand))]
     public class WebRequestPostAssetCommand : UnityPreBuildCommand

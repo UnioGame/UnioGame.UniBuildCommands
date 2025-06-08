@@ -2,7 +2,7 @@
 {
     using System;
     using global::UniGame.UniBuild.Editor.ClientBuild.Interfaces;
-    using UniBuild.Editor.ClientBuild.Commands.PreBuildCommands;
+    using global::UniGame.UniBuild.Editor.Commands.PreBuildCommands;
     using UnityEngine;
 
     [Serializable]
