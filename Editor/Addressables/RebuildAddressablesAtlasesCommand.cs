@@ -3,10 +3,13 @@
     using System;
     using global::UniGame.AddressableAtlases;
     using global::UniGame.UniBuild.Editor.ClientBuild.Interfaces;
-    using Sirenix.OdinInspector;
     using global::UniGame.UniBuild.Editor.Commands.PreBuildCommands;
     using UniModules.Editor;
 
+#if ODIN_INSPECTOR
+    using Sirenix.OdinInspector;
+#endif
+    
     [Serializable]
     public class RebuildAddressablesAtlasesCommand : UnitySerializablePreBuildCommand
     {
@@ -15,7 +18,9 @@
             Execute();
         }
         
+#if ODIN_INSPECTOR
         [Button]
+#endif
         public void Execute()
         {
             var atlasSettings = AssetEditorTools
