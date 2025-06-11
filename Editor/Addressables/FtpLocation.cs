@@ -1,7 +1,7 @@
 namespace UniModules.UniGame.BuildCommands.Editor.Ftp
 {
     using System;
-    using AddressableExtensions.Editor;
+    using global::UniGame.AddressableTools.Editor;
     using UnityEngine;
 
 #if ODIN_INSPECTOR

@@ -1,5 +1,5 @@
 using System;
-using UniModules.UniGame.CoreModules.UniGame.AddressableTools.Editor.Commands;
+using UniGame.AddressableTools.Editor;
 using UniGame.UniBuild.Editor.Commands.PreBuildCommands;
 
 namespace UniModules.UniBuild.Commands.Editor.Addressables
