@@ -1,9 +1,10 @@
-﻿namespace UniModules.UniGame.BuildCommands.Editor.AddressableImporter
+﻿using UniGame.UniBuild.Editor.ClientBuild.Interfaces;
+using UniGame.UniBuild.Editor.Commands.PreBuildCommands;
+
+namespace UniModules.UniGame.BuildCommands.Editor.AddressableImporter
 {
     using System;
     using System.Collections.Generic;
-    using global::UniGame.UniBuild.Editor.ClientBuild.Interfaces;
-    using UniBuild.Editor.ClientBuild.Commands.PreBuildCommands;
     using UnityEngine.Scripting.APIUpdating;
     using AddressableImporter = global::AddressableImporter;
 
