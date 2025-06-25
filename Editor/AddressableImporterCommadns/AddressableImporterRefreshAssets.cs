@@ -1,7 +1,7 @@
-﻿using UniGame.UniBuild.Editor.ClientBuild.Interfaces;
-using UniGame.UniBuild.Editor.Commands.PreBuildCommands;
+﻿using UniGame.UniBuild.Editor;
+using UniGame.UniBuild.Editor.Commands;
 
-namespace UniModules.UniGame.BuildCommands.Editor.AddressableImporter
+namespace UniGame.BuildCommands.Editor
 {
     using System;
     using System.Collections.Generic;
@@ -9,8 +9,8 @@ namespace UniModules.UniGame.BuildCommands.Editor.AddressableImporter
     using AddressableImporter = global::AddressableImporter;
 
      [Serializable]
-     [MovedFrom(true,sourceAssembly:"unigame.build.buildcommands.editor")]
-     public class AddressableImporterRefreshAssets : UnitySerializablePreBuildCommand
+     [MovedFrom(sourceNamespace:"UniModules.UniGame.BuildCommands.Editor.AddressableImporter")]
+     public class AddressableImporterRefreshAssets : SerializableBuildCommand
     {
 #if ODIN_INSPECTOR
         [Sirenix.OdinInspector.FolderPath]

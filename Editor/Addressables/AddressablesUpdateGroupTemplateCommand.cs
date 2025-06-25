@@ -1,12 +1,13 @@
-﻿namespace UniModules.UniGame.BuildCommands.Editor.Addressables
+﻿namespace UniGame.BuildCommands.Editor
 {
     using System;
-    using global::UniGame.UniBuild.Editor.ClientBuild.Interfaces;
-    using global::UniGame.UniBuild.Editor.Commands.PreBuildCommands;
+    using global::UniGame.UniBuild.Editor;
     using UnityEngine;
+    using UnityEngine.Scripting.APIUpdating;
 
     [Serializable]
-    public class ApplyAddressablesGroupsTemplateCommand : UnitySerializablePreBuildCommand
+    [MovedFrom(sourceNamespace:"UniModules.UniGame.BuildCommands.Editor.Addressables")]
+    public class ApplyAddressablesGroupsTemplateCommand : SerializableBuildCommand
     {
 #if ODIN_INSPECTOR
         [Sirenix.OdinInspector.InlineProperty]

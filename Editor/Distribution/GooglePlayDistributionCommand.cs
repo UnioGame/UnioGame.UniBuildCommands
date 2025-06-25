@@ -1,6 +1,6 @@
 ﻿#if UNIGAME_DISTRIBUTION
 
-namespace UniModules.UniGame.BuildCommands.Editor.Distribution
+namespace UniGame.BuildCommands.Editor
 {
     using System;
     using System.IO;

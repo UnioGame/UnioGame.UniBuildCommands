@@ -1,12 +1,13 @@
-namespace UniModules.UniBuild.Commands.Editor.PathCommands
+namespace UniBuild.Commands.Editor
 {
     using System;
     using System.Collections.Generic;
-    using global::UniGame.UniBuild.Editor.ClientBuild.Interfaces;
-    using global::UniGame.UniBuild.Editor.Commands.PreBuildCommands;
+    using global::UniGame.UniBuild.Editor;
     using UnityEditor;
+    using UnityEngine.Scripting.APIUpdating;
 
     [Serializable]
+    [MovedFrom(sourceNamespace:"UniModules.UniBuild.Commands.Editor.PathCommands")]
     public class OpenDirectoryCommand : SerializableBuildCommand
     {
         public string disableArgument = "-batchmode";

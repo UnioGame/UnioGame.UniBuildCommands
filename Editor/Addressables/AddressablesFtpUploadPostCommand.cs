@@ -1,22 +1,23 @@
-﻿using UniGame.AddressableTools.Editor;
-
-namespace UniModules.UniGame.BuildCommands.Editor.Ftp
+﻿namespace UniGame.BuildCommands.Editor
 {
     using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
     using System.Net;
+    using AddressableTools.Editor;
     using FluentFTP;
-    using global::UniGame.UniBuild.Editor.ClientBuild.Interfaces;
-    using global::UniGame.UniBuild.Editor.Commands.PreBuildCommands;
+    using global::UniGame.UniBuild.Editor;
+    using UniModules;
     using UnityEngine;
+    using UnityEngine.Scripting.APIUpdating;
 
 #if ODIN_INSPECTOR
     using Sirenix.OdinInspector;
 #endif
 
     [Serializable]
+    [MovedFrom(sourceNamespace:"UniModules.UniGame.BuildCommands.Editor.Ftp")]
     public class AddressablesFtpUploadPostCommand : SerializableBuildCommand
     {
         public string disableArgument = "-disableFtpUpload";

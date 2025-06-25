@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UniGame.Core.Runtime.Extension;
-using UniGame.UniBuild.Editor.Commands.PreBuildCommands;
 using UnityEditor;
 using UnityEngine;
 
-namespace UniModules.UniBuild.Commands.Editor.PathCommands
+namespace UniBuild.Commands.Editor
 {
-    using global::UniGame.UniBuild.Editor.ClientBuild.Interfaces;
+    using global::UniGame.UniBuild.Editor;
+    using UnityEngine.Scripting.APIUpdating;
     using UnityEngine.Serialization;
 
     [Serializable]
-    public class RemoveDirectoryCommand : UnitySerializablePreBuildCommand
+    [MovedFrom(sourceNamespace:"UniModules.UniBuild.Commands.Editor.PathCommands")]
+    public class RemoveDirectoryCommand : SerializableBuildCommand
     {
         [FormerlySerializedAs("folderPath")]
         public List<Folder> folders = new List<Folder>();

@@ -1,13 +1,14 @@
 using System;
 using UniGame.AddressableTools.Editor;
-using UniGame.UniBuild.Editor.Commands.PreBuildCommands;
+using global::UniGame.UniBuild.Editor;
 
-namespace UniModules.UniBuild.Commands.Editor.Addressables
+namespace UniBuild.Commands.Editor
 {
-    using global::UniGame.UniBuild.Editor.ClientBuild.Interfaces;
+    using UnityEngine.Scripting.APIUpdating;
 
     [Serializable]
-    public class AddressablesFixGuidCommand : UnitySerializablePreBuildCommand
+    [MovedFrom(sourceNamespace:"UniModules.UniBuild.Commands.Editor.Addressables")]
+    public class AddressablesFixGuidCommand : SerializableBuildCommand
     {
         public override void Execute(IUniBuilderConfiguration buildParameters) => Execute();
 

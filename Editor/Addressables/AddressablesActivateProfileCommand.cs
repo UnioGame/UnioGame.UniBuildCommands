@@ -1,18 +1,20 @@
-﻿using UniGame.UniBuild.Editor.Commands.PreBuildCommands;
-using UnityEngine;
+﻿using UnityEngine;
+using UniGame.UniBuild.Editor;
 
-namespace UniModules.UniGame.BuildCommands.Editor.Addressables
+namespace UniGame.BuildCommands.Editor
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using global::UniGame.UniBuild.Editor.ClientBuild.Interfaces;
+    
     using UniModules.Editor;
     using UnityEditor;
     using UnityEditor.AddressableAssets.Settings;
+    using UnityEngine.Scripting.APIUpdating;
 
     [Serializable]
-    public class AddressablesActivateProfileCommand : UnitySerializablePreBuildCommand
+    [MovedFrom(sourceNamespace:"UniModules.UniGame.BuildCommands.Editor.Addressables")]
+    public class AddressablesActivateProfileCommand : SerializableBuildCommand
     {
         private AddressableAssetSettings addressableAssetSettings;
 

@@ -1,13 +1,13 @@
-﻿namespace UniModules.UniGame.BuildCommands.Editor.Addressables
+﻿namespace UniGame.BuildCommands.Editor
 {
     using System;
-    using global::UniGame.UniBuild.Editor.ClientBuild.Interfaces;
-    using global::UniGame.UniBuild.Editor.Commands.PreBuildCommands;
+    using global::UniGame.UniBuild.Editor;
+    using global::UniGame.UniBuild.Editor.Commands;
     using UnityEngine;
 
     [Serializable]
     [CreateAssetMenu(menuName = "UniBuild/Commands/Addressables/ApplyGroupsTemplateCommand",fileName = nameof(AddressablesApplyGroupsTemplateCommand))]
-    public class AddressablesApplyGroupsTemplateCommand : UnityPreBuildCommand
+    public class AddressablesApplyGroupsTemplateCommand : UnityBuildCommand
     {
 #if ODIN_INSPECTOR
         [Sirenix.OdinInspector.InlineProperty]

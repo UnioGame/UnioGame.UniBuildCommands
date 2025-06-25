@@ -1,4 +1,4 @@
-﻿namespace UniModules.UniGame.BuildCommands.Editor.Addressables
+﻿namespace UniGame.BuildCommands.Editor
 {
     using System;
     using UnityEditor.AddressableAssets.Settings;

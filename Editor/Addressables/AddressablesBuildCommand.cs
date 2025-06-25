@@ -1,11 +1,11 @@
-﻿namespace UniGame.UniBuild.Editor.Commands.PreBuildCommands.AddressablesCommands
+﻿namespace UniGame.BuildCommands.Editor
 {
     using System;
     using System.Collections.Generic;
-    using global::UniGame.UniBuild.Editor.ClientBuild.Interfaces;
+    using global::UniGame.UniBuild.Editor;
     using UnityEditor.AddressableAssets;
     using UnityEditor.AddressableAssets.Settings;
-    using UnityEngine;
+    using UnityEngine.Scripting.APIUpdating;
 
 #if TRI_INSPECTOR
     using TriInspector;
@@ -16,7 +16,8 @@
 #endif
     
     [Serializable]
-    public class AddressablesBuildCommand : UnitySerializablePreBuildCommand
+    [MovedFrom(sourceNamespace:"UniGame.UniBuild.Editor.Commands.AddressablesCommands")]
+    public class AddressablesBuildCommand : SerializableBuildCommand
     {
 #if ODIN_INSPECTOR
         [ValueDropdown(nameof(GetBuilders))]

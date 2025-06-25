@@ -1,12 +1,12 @@
 ﻿using UniGame.AddressableTools.Editor;
 
-namespace UniModules.UniGame.BuildCommands.Editor.Addressables
+namespace UniGame.BuildCommands.Editor
 {
     using System;
-    using global::UniGame.UniBuild.Editor.ClientBuild.Interfaces;
-    using global::UniGame.UniBuild.Editor.Commands.PreBuildCommands;
+    using global::UniGame.UniBuild.Editor;
     using UnityEditor.Build.Pipeline.Utilities;
     using UnityEngine;
+    using UnityEngine.Scripting.APIUpdating;
     using BuildLogger = global::UniGame.UniBuild.Editor.BuildLogger;
 
     public enum CleanType
@@ -17,7 +17,8 @@ namespace UniModules.UniGame.BuildCommands.Editor.Addressables
     }
     
     [Serializable]
-    public class AddressablesCleanUpCommand : UnitySerializablePreBuildCommand
+    [MovedFrom(sourceNamespace:"UniModules.UniGame.BuildCommands.Editor.Addressables")]
+    public class AddressablesCleanUpCommand : SerializableBuildCommand
     {
         public string CleanUpArgument = "-addressableCleanUp";
         

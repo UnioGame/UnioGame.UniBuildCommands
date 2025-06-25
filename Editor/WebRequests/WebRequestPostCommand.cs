@@ -1,16 +1,17 @@
 ﻿using UniGame.Runtime.Extension;
 
-namespace UniModules.UniGame.BuildCommands.Editor.WebRequests
+namespace UniGame.BuildCommands.Editor
 {
     using System;
     using global::UniGame.Utils;
-    using global::UniGame.UniBuild.Editor.ClientBuild.Interfaces;
-    using global::UniGame.UniBuild.Editor.Commands.PreBuildCommands;
+    using global::UniGame.UniBuild.Editor;
     using UnityEngine;
     using UnityEngine.Networking;
+    using UnityEngine.Scripting.APIUpdating;
 
     [Serializable]
-    public class WebRequestPostCommand : UnitySerializablePostBuildCommand
+    [MovedFrom(sourceNamespace:"UniModules.UniGame.BuildCommands.Editor.WebRequests")]
+    public class WebRequestPostCommand : SerializableBuildCommand
     {
         public string apiUrl = "";
 

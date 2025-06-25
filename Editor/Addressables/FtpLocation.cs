@@ -1,4 +1,4 @@
-namespace UniModules.UniGame.BuildCommands.Editor.Ftp
+namespace UniGame.BuildCommands.Editor
 {
     using System;
     using global::UniGame.AddressableTools.Editor;

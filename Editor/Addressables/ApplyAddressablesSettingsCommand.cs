@@ -4,12 +4,12 @@ using UnityEditor;
 namespace UniModules.UniBuild.Commands
 {
     using System;
-    using global::UniGame.UniBuild.Editor.ClientBuild.Interfaces;
-    using global::UniGame.UniBuild.Editor.Commands.PreBuildCommands;
+    using global::UniGame.UniBuild.Editor;
     using UnityEditor.AddressableAssets;
-    using UnityEditor.AddressableAssets.Settings;
+    using UnityEngine.Scripting.APIUpdating;
 
     [Serializable]
+    [MovedFrom(sourceNamespace:"UniModules.UniGame.BuildCommands.Editor.Addressables")]
     public class ApplyAddressablesSettingsCommand : SerializableBuildCommand
     {
 

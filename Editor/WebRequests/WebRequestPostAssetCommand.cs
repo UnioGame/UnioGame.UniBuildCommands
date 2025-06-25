@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 
-namespace UniModules.UniGame.BuildCommands.Editor.WebRequests
+namespace UniGame.BuildCommands.Editor
 {
-    using global::UniGame.UniBuild.Editor.ClientBuild.Interfaces;
-    using global::UniGame.UniBuild.Editor.Commands.PreBuildCommands;
+    using global::UniGame.UniBuild.Editor;
+    using global::UniGame.UniBuild.Editor.Commands;
+    using UnityEngine.Scripting.APIUpdating;
 
     [CreateAssetMenu(menuName = "UniBuild//CommandsWeb/WebRequestPost",fileName = nameof(WebRequestPostAssetCommand))]
-    public class WebRequestPostAssetCommand : UnityPreBuildCommand
+    [MovedFrom(sourceNamespace:"UniModules.UniGame.BuildCommands.Editor.WebRequests")]
+    public class WebRequestPostAssetCommand : UnityBuildCommand
     {
 #if ODIN_INSPECTOR
         [Sirenix.OdinInspector.HideLabel]

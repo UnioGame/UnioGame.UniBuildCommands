@@ -1,12 +1,14 @@
-﻿using UniGame.UniBuild.Editor.Commands.PreBuildCommands;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace UniModules.UniBuild.Commands.Editor.PathCommands
+namespace UniBuild.Commands.Editor
 {
-    using global::UniGame.UniBuild.Editor.ClientBuild.Interfaces;
+    using global::UniGame.UniBuild.Editor;
+    using global::UniGame.UniBuild.Editor.Commands;
+    using UnityEngine.Scripting.APIUpdating;
 
     [CreateAssetMenu(menuName = "UniBuild/Commands/RemoveDirectory",fileName = nameof(RemoveDirectoryAssetCommand))]
-    public class RemoveDirectoryAssetCommand : UnityPreBuildCommand
+    [MovedFrom(sourceNamespace:"UniModules.UniBuild.Commands.Editor.PathCommands")]
+    public class RemoveDirectoryAssetCommand : UnityBuildCommand
     {
 #if ODIN_INSPECTOR
         [Sirenix.OdinInspector.HideLabel]
