@@ -16,7 +16,7 @@
 #endif
     
     [Serializable]
-    [MovedFrom(sourceNamespace:"UniGame.UniBuild.Editor.Commands.AddressablesCommands")]
+    [MovedFrom(sourceNamespace:"UniModules.UniGame.UniBuild.Editor.ClientBuild.Commands.PreBuildCommands.AddressablesCommands")]
     public class AddressablesBuildCommand : SerializableBuildCommand
     {
 #if ODIN_INSPECTOR
